@@ -1,18 +1,20 @@
-import { Button } from "./components/ui/button"
+import React, { useEffect } from 'react';
+import Layout from '@/components/layout/Layout';
+import Dashboard from '@/pages/Dashboard';
+import { useStore } from '@/store/useStore';
 
-function App() {
+const App: React.FC = () => {
+  const initializeData = useStore((state) => state.initializeData);
+
+  useEffect(() => {
+    initializeData();
+  }, [initializeData]);
 
   return (
-    <>
-      <div className="flex min-h-screen">
-        <div className="flex-1">
-          <h1 className="text-2xl font-bold">App</h1>
-          <p className="text-green-500">App</p>
-          <Button>Button</Button>
-        </div>
-      </div>
-    </>
-  )
-}
+    <Layout>
+      <Dashboard />
+    </Layout>
+  );
+};
 
-export default App
+export default App;
