@@ -38,17 +38,20 @@ export const useStore = create<AppState>((set, get) => ({
       (e: any) => e.name === 'Get Broker Info'
     )?.response as Broker;
     
-    const onboardingWorkflow = sampleData.endpoints.find(
+    const onboardingEndpoint = sampleData.endpoints.find(
       (e: any) => e.name === 'Get Onboarding Workflow'
-    )?.response as OnboardingWorkflow;
+    );
     
-    // Set the first borrower as active by default
+    const onboardingWorkflow = onboardingEndpoint ? 
+      (onboardingEndpoint.response as OnboardingWorkflow) : 
+      null;
+    
     const firstBorrower = borrowerPipeline?.new[0] || borrowerPipeline?.in_review[0] || borrowerPipeline?.approved[0];
     
     set({
       borrowerPipeline: borrowerPipeline || { new: [], in_review: [], approved: [] },
       brokerInfo: brokerInfo || null,
-      onboardingWorkflow: onboardingWorkflow || null,
+      onboardingWorkflow: onboardingWorkflow || { steps: [] },
       activeBorrower: firstBorrower || null,
       actionMessage: null,
       actionSuccess: null
@@ -56,8 +59,6 @@ export const useStore = create<AppState>((set, get) => ({
   },
   
   getBorrowerDetails: (id: string) => {
-    // In a real app, this would be an API call
-    // For now, we'll check if the requested ID matches the sample data
     const borrowerDetailEndpoint = sampleData.endpoints.find(
       (e: any) => e.name === 'Get Borrower Detail'
     );
@@ -69,7 +70,6 @@ export const useStore = create<AppState>((set, get) => ({
       }
     }
     
-    // If no detailed data is available for this ID, try to find the borrower in the pipeline
     const { borrowerPipeline } = get();
     const allBorrowers = [
       ...(borrowerPipeline.new || []), 
@@ -79,12 +79,10 @@ export const useStore = create<AppState>((set, get) => ({
     
     const basicBorrowerInfo = allBorrowers.find(borrower => borrower.id === id);
     
-    // Return the basic info if found, otherwise return null
     return basicBorrowerInfo || null;
   },
   
   performAction: (actionName: string, borrowerId: string) => {
-    // Find the action in the sample data
     const actionEndpoint = sampleData.endpoints.find(
       (e: any) => e.name === actionName
     );
@@ -96,31 +94,25 @@ export const useStore = create<AppState>((set, get) => ({
         actionSuccess: response.success
       });
       
-      // Clear the message after 3 seconds
       setTimeout(() => {
         get().clearActionMessage();
       }, 3000);
       
-      // If it's an approve action, move the borrower to approved status
       if (actionName === 'Approve Loan' && response.success) {
         const { borrowerPipeline, activeBorrower } = get();
         
-        // Remove from current arrays
         const newBorrowers = borrowerPipeline.new.filter(b => b.id !== borrowerId);
         const inReviewBorrowers = borrowerPipeline.in_review.filter(b => b.id !== borrowerId);
         
-        // Find the borrower to approve
         const borrowerToApprove = [...borrowerPipeline.new, ...borrowerPipeline.in_review]
           .find(b => b.id === borrowerId);
         
         if (borrowerToApprove) {
-          // Update status
           const approvedBorrower = {
             ...borrowerToApprove,
             status: 'Approved'
           };
           
-          // Update pipeline
           set({
             borrowerPipeline: {
               new: newBorrowers,
@@ -129,7 +121,6 @@ export const useStore = create<AppState>((set, get) => ({
             }
           });
           
-          // Update active borrower if it's the one being approved
           if (activeBorrower && activeBorrower.id === borrowerId) {
             set({ activeBorrower: approvedBorrower });
           }

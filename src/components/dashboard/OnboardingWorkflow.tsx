@@ -6,9 +6,9 @@ import { CheckCircle } from 'lucide-react';
 const OnboardingWorkflow: React.FC = () => {
   const { onboardingWorkflow } = useStore();
 
-  if (!onboardingWorkflow) {
+  if (!onboardingWorkflow || !onboardingWorkflow.steps || onboardingWorkflow.steps.length === 0) {
     return (
-      <Card className="h-full bg-gray-900 border-gray-800">
+      <Card className="h-full bg-gray-900 border-gray-800 mt-6">
         <CardHeader>
           <CardTitle className="text-white">Onboarding Workflow</CardTitle>
         </CardHeader>
@@ -27,7 +27,7 @@ const OnboardingWorkflow: React.FC = () => {
       <CardContent>
         <ol className="relative border-l border-gray-700">
           {onboardingWorkflow.steps.map((step, index) => (
-            <li key={index} className="mb-4 ml-4">
+            <li key={index} className="mb-6 ml-4">
               <div className={`absolute w-6 h-6 rounded-full -left-3 border border-gray-900 ${
                 index === 0 ? 'bg-blue-500' : 'bg-gray-700'
               }`}></div>
