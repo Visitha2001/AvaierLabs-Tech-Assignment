@@ -28,7 +28,7 @@ const BrokerOverview: React.FC = () => {
       <CardContent className="space-y-6">
         <div>
           <h3 className="font-semibold text-white text-lg">{brokerInfo.name}</h3>
-          <div className="grid grid-cols-3 gap-4 mt-4">
+          <div className="grid grid-cols-3 gap-2 sm:gap-4 mt-4">
             <div className="text-center">
               <p className="text-2xl font-bold text-white">{brokerInfo.deals}</p>
               <p className="text-sm text-gray-400">Deals</p>

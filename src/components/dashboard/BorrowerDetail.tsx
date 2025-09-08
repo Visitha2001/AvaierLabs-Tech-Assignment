@@ -38,8 +38,8 @@ const BorrowerDetail: React.FC = () => {
   return (
     <Card className="h-full bg-gray-900 border-gray-800">
       <CardHeader>
-        <div className="flex justify-between items-start">
-          <div>
+        <div className="sm:flex inline justify-between items-start">
+          <div className="sm:mb-0 mb-4">
             <CardTitle className="text-white">{activeBorrower.name}</CardTitle>
             {hasDetailedInfo ? (
               <>
@@ -158,9 +158,9 @@ const BorrowerDetail: React.FC = () => {
           </>
         )}
 
-        <div className="flex space-x-3">
+        <div className="sm:flex inline space-x-3">
           <Button 
-            className="flex-1 bg-blue-600 hover:bg-blue-700 text-white"
+            className="flex-1 bg-blue-600 hover:bg-blue-700 text-white sm:mb-0 mb-4"
             onClick={() => handleAction('Approve Loan')}
             disabled={activeBorrower.status === 'Approved'}
           >
