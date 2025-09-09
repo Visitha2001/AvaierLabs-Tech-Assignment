@@ -1,0 +1,95 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - heading "DemoApp" [level=1] [ref=e5]
+    - generic [ref=e6]:
+      - img [ref=e7]
+      - img [ref=e10]
+      - img [ref=e13]
+  - main [ref=e16]:
+    - generic [ref=e17]:
+      - generic [ref=e19]:
+        - generic [ref=e21]: Borrower Pipeline
+        - generic [ref=e22]:
+          - generic [ref=e23]:
+            - tablist [ref=e24]:
+              - tab "New" [selected] [ref=e25]
+              - tab "In Review" [ref=e26]
+              - tab "Approved" [ref=e27]
+            - tabpanel "New" [ref=e28]:
+              - generic [ref=e31] [cursor=pointer]:
+                - generic [ref=e32] [cursor=pointer]:
+                  - heading "Lisa Carter" [level=4] [ref=e33] [cursor=pointer]
+                  - paragraph [ref=e34] [cursor=pointer]: Home Loan
+                - generic [ref=e35] [cursor=pointer]:
+                  - paragraph [ref=e36] [cursor=pointer]: $450,000
+                  - generic [ref=e37] [cursor=pointer]: New
+          - generic [ref=e38]:
+            - heading "F-SANATISED ACTIVE" [level=3] [ref=e39]
+            - generic [ref=e41]:
+              - radio "Option 1" [checked] [ref=e42]
+              - generic [ref=e43]: Option 1
+      - generic [ref=e45]:
+        - generic [ref=e47]:
+          - generic [ref=e48]:
+            - generic [ref=e49]: Sarah Dunn
+            - paragraph [ref=e50]: Basic information only - detailed data not available
+            - paragraph [ref=e51]: "Loan Amount: $300,000"
+          - generic [ref=e52]: Approved
+        - generic [ref=e54]:
+          - button "Approve Loan" [disabled]:
+            - img
+            - text: Approve Loan
+          - button "Escalate to Credit Committee" [ref=e55]:
+            - img
+            - text: Escalate to Credit Committee
+      - generic [ref=e56]:
+        - generic [ref=e57]:
+          - generic [ref=e59]: Broker Overview
+          - generic [ref=e60]:
+            - generic [ref=e61]:
+              - heading "Robert Turner" [level=3] [ref=e62]
+              - generic [ref=e63]:
+                - generic [ref=e64]:
+                  - paragraph [ref=e65]: "16"
+                  - paragraph [ref=e66]: Deals
+                - generic [ref=e67]:
+                  - paragraph [ref=e68]: 75%
+                  - paragraph [ref=e69]: Approval Rate
+                - generic [ref=e70]:
+                  - paragraph [ref=e71]: $7,660
+                  - paragraph [ref=e72]: Pending
+            - generic [ref=e73]:
+              - heading "Contact Broker" [level=4] [ref=e74]
+              - generic [ref=e75]:
+                - button [ref=e76]:
+                  - img
+                - button [ref=e77]:
+                  - img
+                - button [ref=e78]:
+                  - img
+            - generic [ref=e79]:
+              - heading "E Ardsassist" [level=4] [ref=e80]
+              - checkbox [ref=e82]
+        - generic [ref=e84]:
+          - generic [ref=e86]: Onboarding Workflow
+          - list [ref=e88]:
+            - listitem [ref=e89]:
+              - generic [ref=e91]:
+                - img [ref=e92]
+                - paragraph [ref=e95]: Deal Intake
+            - listitem [ref=e96]:
+              - paragraph [ref=e99]: IDV & Credit Check
+            - listitem [ref=e100]:
+              - paragraph [ref=e103]: Document Upload
+            - listitem [ref=e104]:
+              - paragraph [ref=e107]: AI Validation
+            - listitem [ref=e108]:
+              - paragraph [ref=e111]: Credit Committee
+            - listitem [ref=e112]:
+              - paragraph [ref=e115]: Approval & Docs
+            - listitem [ref=e116]:
+              - paragraph [ref=e119]: Funder Syndication
+```

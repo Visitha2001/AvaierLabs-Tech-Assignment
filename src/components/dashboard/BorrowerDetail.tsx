@@ -36,10 +36,10 @@ const BorrowerDetail: React.FC = () => {
   };
 
   return (
-    <Card className="h-full bg-gray-900 border-gray-800">
+    <Card className="h-full bg-gray-900 border-gray-800" data-testid="borrower-detail">
       <CardHeader>
-        <div className="flex justify-between items-start">
-          <div>
+        <div className="sm:flex inline justify-between items-start">
+          <div className="sm:mb-0 mb-4">
             <CardTitle className="text-white">{activeBorrower.name}</CardTitle>
             {hasDetailedInfo ? (
               <>
@@ -86,7 +86,7 @@ const BorrowerDetail: React.FC = () => {
         
         {hasDetailedInfo && activeBorrower.ai_flags && activeBorrower.ai_flags.length > 0 && (
           <Accordion type="single" collapsible className="w-full">
-            <AccordionItem value="ai-explainability" className="border-gray-700">
+            <AccordionItem value="ai-explainability" className="border-gray-700" data-testid="ai-explainability-section">
               <AccordionTrigger className="text-white hover:no-underline hover:bg-gray-800 px-4 rounded-lg">
                 <div className="flex items-center">
                   <AlertTriangle className="h-5 w-5 text-red-500 mr-2" />
@@ -107,6 +107,7 @@ const BorrowerDetail: React.FC = () => {
                     variant="outline" 
                     className="flex-1 bg-gray-800 border-gray-700 text-white hover:bg-gray-700"
                     onClick={() => handleAction('Request Documents')}
+                    data-testid="request-docs-btn"
                   >
                     <FileText className="h-4 w-4 mr-2" />
                     Request Documents
@@ -115,6 +116,7 @@ const BorrowerDetail: React.FC = () => {
                     variant="outline" 
                     className="flex-1 bg-gray-800 border-gray-700 text-white hover:bg-gray-700"
                     onClick={() => handleAction('Send to Valuer')}
+                    data-testid="send-valuer-btn"
                   >
                     <Home className="h-4 w-4 mr-2" />
                     Send to Valuer
@@ -158,11 +160,12 @@ const BorrowerDetail: React.FC = () => {
           </>
         )}
 
-        <div className="flex space-x-3">
+        <div className="sm:flex inline space-x-3">
           <Button 
-            className="flex-1 bg-blue-600 hover:bg-blue-700 text-white"
+            className="flex-1 bg-blue-600 hover:bg-blue-700 text-white sm:mb-0 mb-4"
             onClick={() => handleAction('Approve Loan')}
             disabled={activeBorrower.status === 'Approved'}
+            data-testid="approve-loan-btn"
           >
             <CheckCircle className="h-4 w-4 mr-2" />
             Approve Loan
@@ -170,6 +173,7 @@ const BorrowerDetail: React.FC = () => {
           <Button 
             className="flex-1 bg-gray-800 border border-gray-700 text-white hover:bg-gray-700"
             onClick={() => handleAction('Escalate to Credit Committee')}
+            data-testid="escalate-btn"
           >
             <Scale className="h-4 w-4 mr-2" />
             Escalate to Credit Committee
