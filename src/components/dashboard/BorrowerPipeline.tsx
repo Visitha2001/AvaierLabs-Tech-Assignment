@@ -62,10 +62,10 @@ const BorrowerPipeline: React.FC = () => {
       </CardHeader>
       <CardContent>
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full" data-testid="pipeline-tabs">
-          <TabsList className="grid grid-cols-3 mb-4 bg-gray-800">
-            <TabsTrigger value="new" className="data-[state=active]:bg-gray-700" data-testid="tab-new">New</TabsTrigger>
-            <TabsTrigger value="in_review" className="data-[state=active]:bg-gray-700" data-testid="tab-in-review">In Review</TabsTrigger>
-            <TabsTrigger value="approved" className="data-[state=active]:bg-gray-700" data-testid="tab-approved">Approved</TabsTrigger>
+          <TabsList className="grid grid-cols-3 mb-4 bg-gray-700">
+            <TabsTrigger value="new" className="data-[state=active]:bg-gray-200" data-testid="tab-new">New</TabsTrigger>
+            <TabsTrigger value="in_review" className="data-[state=active]:bg-gray-200" data-testid="tab-in-review">In Review</TabsTrigger>
+            <TabsTrigger value="approved" className="data-[state=active]:bg-gray-200" data-testid="tab-approved">Approved</TabsTrigger>
           </TabsList>
           
           <TabsContent value="new" className="mt-0" data-testid="tab-content-new">
