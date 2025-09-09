@@ -21,7 +21,7 @@ const BrokerOverview: React.FC = () => {
   }
 
   return (
-    <Card className="h-full bg-gray-900 border-gray-800">
+    <Card className="h-full bg-gray-900 border-gray-800" data-testid="broker-overview">
       <CardHeader>
         <CardTitle className="text-white">Broker Overview</CardTitle>
       </CardHeader>

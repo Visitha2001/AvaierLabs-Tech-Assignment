@@ -20,7 +20,7 @@ const OnboardingWorkflow: React.FC = () => {
   }
 
   return (
-    <Card className="h-full bg-gray-900 border-gray-800 mt-6">
+    <Card className="h-full bg-gray-900 border-gray-800 mt-6" data-testid="onboarding-workflow">
       <CardHeader>
         <CardTitle className="text-white">Onboarding Workflow</CardTitle>
       </CardHeader>
